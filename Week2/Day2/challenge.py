@@ -23,9 +23,16 @@ wallet1 = "$300"
 # remove currency and comma details
 import re
 trim = re.compile(r'[^\d.]+')
-trimmed = [(key, float(trim.sub('', value))) for key, value in items_purchase1.items()]
-trimmed = dict(trimmed)
-print(f"The trimmed flat dictionary: {trimmed}")
+trimmed1 = [(key, float(trim.sub('', value))) for key, value in items_purchase1.items()]
+trimmed1 = dict(trimmed1)
+print(f"The trimmed flat dictionary: {trimmed1}")
+wallet1 = float(trim.sub('', wallet1))
+print(f"Your wallet has: $ {wallet1}")
+
+# which items are affordable
+afford1 = dict((k, v) for k, v in trimmed1.items() if v < wallet1)
+if sum(afford1.values()) <= wallet1:
+    print(f"With the $ {wallet1} in your wallet, you can afford: {afford1}\n Total cost: {sum(afford1.values())}")
 
 
 
