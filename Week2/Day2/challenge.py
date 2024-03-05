@@ -16,6 +16,16 @@ print(f"Your collection of letters: {dodo}")
 
 # challenge 2
 print()
+print("challenge 2")
+items_purchase1 = {"Water": "$1", "Bread": "$3", "TV": "$1,000", "Fertilizer": "$20"}
+wallet1 = "$300"
+
+# remove currency and comma details
+import re
+trim = re.compile(r'[^\d.]+')
+trimmed = [(key, float(trim.sub('', value))) for key, value in items_purchase1.items()]
+trimmed = dict(trimmed)
+print(f"The trimmed flat dictionary: {trimmed}")
 
 
 
