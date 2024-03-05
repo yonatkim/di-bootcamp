@@ -31,8 +31,11 @@ print(f"Your wallet has: $ {wallet1}")
 
 # which items are affordable
 afford1 = dict((k, v) for k, v in trimmed1.items() if v < wallet1)
+keys_afford1 = list(afford1.keys())
+keys_afford1.sort()
 if sum(afford1.values()) <= wallet1:
-    print(f"With the $ {wallet1} in your wallet, you can afford: {afford1}\n Total cost: {sum(afford1.values())}")
+    print(f"With the $ {wallet1} in your wallet, you can afford: \
+          {keys_afford1}\n Total cost: {sum(afford1.values())}")
 
 
 
