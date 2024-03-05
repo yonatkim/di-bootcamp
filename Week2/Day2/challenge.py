@@ -21,21 +21,41 @@ items_purchase1 = {"Water": "$1", "Bread": "$3", "TV": "$1,000", "Fertilizer": "
 wallet1 = "$300"
 
 # remove currency and comma details
-import re
-trim = re.compile(r'[^\d.]+')
-trimmed1 = [(key, float(trim.sub('', value))) for key, value in items_purchase1.items()]
-trimmed1 = dict(trimmed1)
-print(f"The trimmed flat dictionary: {trimmed1}")
-wallet1 = float(trim.sub('', wallet1))
-print(f"Your wallet has: $ {wallet1}")
+def calc_afford(items_purchase, wallet):
+    print()
+    import re
+    trim = re.compile(r'[^\d.]+')
+    trimmed = [(key, float(trim.sub('', value))) for key, value in items_purchase.items()]
+    trimmed = dict(trimmed)
+    print(f"The trimmed flat dictionary: {trimmed}")
+    wallet = float(trim.sub('', wallet))
+    print(f"Your wallet has: $ {wallet}")
 
-# which items are affordable
-afford1 = dict((k, v) for k, v in trimmed1.items() if v < wallet1)
-keys_afford1 = list(afford1.keys())
-keys_afford1.sort()
-if sum(afford1.values()) <= wallet1:
-    print(f"With the $ {wallet1} in your wallet, you can afford: \
-          {keys_afford1}\n Total cost: {sum(afford1.values())}")
+    # which items are affordable
+    afford = dict((k, v) for k, v in trimmed.items() if v < wallet)
+    keys_afford = list(afford.keys())
+    keys_afford.sort()
+    if not keys_afford:
+        print(f"With the $ {wallet} in your wallet, you can afford: NOTHING")
+    elif sum(afford.values()) <= wallet:
+        print(f"With the $ {wallet} in your wallet, you can afford: {keys_afford}\n Total cost: {sum(afford.values())}")
+    if wallet in trimmed.values():
+        print(f"You could also buy only the {list(trimmed.keys())[list(trimmed.values()).index(wallet)]} for $ {wallet}")
+
+# first test case
+calc_afford(items_purchase1, wallet1)
+
+# more test cases
+items_purchase2 = {"Apple": "$4", "Honey": "$3", "Fan": "$14", "Bananas": "$4", "Pan": "$100", "Spoon": "$2"}
+wallet2 = "$100" 
+
+calc_afford(items_purchase2, wallet2)
+
+items_purchase3 = {"Phone": "$999", "Speakers": "$300", "Laptop": "$5,000", "PC": "$1200"}
+wallet3 = "$1"
+
+calc_afford(items_purchase3, wallet3)
+
 
 
 
