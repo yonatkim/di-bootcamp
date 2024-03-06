@@ -85,4 +85,65 @@ def make_great(magicians):
 make_great(magician_names)
 
 # exercise 7
+print()
+print("exercise 7")
+import random
+def get_random_temp(season = 'winter'):
+    # default minimum temp in degrees C = -10
+    # default maximum temp in degrees C = 40 (max - min = 30)
+    min, max = -10, 40
+    match season:
+        case 'spring':
+            min = 0
+            max = 23
+        case 'summer':
+            min = 19
+            max = 40
+        case 'autumn':
+            min = 10
+            max = 25
+        case 'winter':
+            min = -10
+            max = 16
+    print(f"The season is: {season} min, max : {min, max}")
+    result = [random.uniform(min, max)]
+    return result
 
+
+
+def main():
+    #seasons = ['spring', 'summer', 'autumn', 'winter']
+    #season = random.choice(seasons)
+    month = input("Enter the number of the current month: ")
+    season = ''
+    month = int(month)
+    match int(month):
+        case mon if 1 <= mon < 3: 
+            season = 'winter'
+        case mon if 3 <= mon < 6:
+            season = 'spring'
+        case mon if 6 <= mon < 9:
+            season = 'summer'
+        case mon if 9 <= mon < 12:
+            season = 'autumn'
+        case 12:
+            season = 'winter'
+
+    #today_temp = get_random_temp(season)[0] 
+    today_temp = get_random_temp(season)
+    print(f"The temperature right now is: {today_temp[0]:.2f} degrees Celsius")
+    match today_temp[0]:
+        case temp if temp <= 0:
+            print("Brrr, that's freezing! Wear some extra layers today")
+        case temp if 0 < temp < 16:
+            print("Quite chilly! Don't forget your coat")
+        case temp if 16 <= temp < 23:
+            print("Fresh! Remember to move your legs")
+        case temp if 23 <= temp < 32:
+            print("Perfect! Make the most of the outdoors")
+        case temp if 32 <= temp <= 40:
+            print("Sizzling! Remember to drink enough water")
+
+# test the function
+for i in range(10):
+    main()    
