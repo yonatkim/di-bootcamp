@@ -57,7 +57,7 @@ def col_win(board, player):
     return win 
  
 def diag_win(board, player):
-    '''Checls for a diagonal win'''
+    '''Checks for a diagonal win'''
     win = True
     y = 0
     for x in range(len(board)):
