@@ -146,4 +146,67 @@ def main():
 
 # test the function
 for i in range(10):
-    main()    
+    main() 
+
+# exercise 8
+print()
+print("exercise 8") 
+
+data = [{
+        "question": "What is Baby Yoda's real name?",
+        "answer": "Grogu"
+    },
+    {
+        "question": "Where did Obi-Wan take Luke after his birth?",
+        "answer": "Tatooine"
+    },
+    {
+        "question": "What year did the first Star Wars movie come out?",
+        "answer": "1977"
+    },
+    {
+        "question": "Who built C-3PO?",
+        "answer": "Anakin Skywalker"
+    },
+    {
+        "question": "Anakin Skywalker grew up to be who?",
+        "answer": "Darth Vader"
+    },
+    {
+        "question": "What species is Chewbacca?",
+        "answer": "Wookiee"
+    }
+]
+
+def ask_question():
+    print("Answer these questions 🎓")
+    score = 0
+    wrong_answers = []
+    for d in data:
+        answer = input(f"{d['question']}")
+        if answer == d['answer']:
+            score += 1
+            print(f"✔️")
+        else:
+            wrong_answers.append(d)
+            print(f"✖️")
+    return {score: wrong_answers}
+
+def feedback(score, wrong_answers):
+    match score:
+        case s if s < 3:
+            print(f"Your score: {score/len(data):.2%} Better luck next time!")
+        case s if 3 <= s < 6:
+            print(f"Your score: {score/len(data):.2%} Not bad. You're not a fan of Star Wars!")
+        case s if 6 <= s:
+            print(f"Your score: {score/len(data):.2%} Not bad. You're not a fan of Star Wars!")
+    print(f"Your wrong answers are:\n {wrong_answers}")
+
+
+results = ask_question()
+score = int(list(results.keys())[0])
+feedback(score, results[score])
+
+
+
+
