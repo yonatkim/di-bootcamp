@@ -16,20 +16,15 @@ class Farm:
         else:
             self.animals.update({animal_name: animal_count})
 
-    def get_animals(self):
+    def get_info(self):
         '''Prints the animals and how many of these animals there are'''
         print(f"{self.name}'s farm has:\n {self.animals}\n {self.song}")
 
-    def get_animal_types(self):
+    def get_short_info(self):
         '''Prints the animal types on the farm'''
         print(f"{self.name}'s farm has these types of animals: {[k for k in self.animals.keys()]}")
 
-    def get_info(self):
-        '''Prints a summary about the farm'''
-        self.get_animals()
     
-    def get_short_info(self):
-        self.get_animal_types()
 
 macdonald = Farm("McDonald")
 macdonald.add_song("    E-I-E-I-0!")
@@ -37,5 +32,5 @@ macdonald.add_animal('cow',5)
 macdonald.add_animal('sheep')
 macdonald.add_animal('sheep')
 macdonald.add_animal('goat', 12)
-print(macdonald.get_info())
-print(macdonald.get_short_info())
+macdonald.get_info()
+macdonald.get_short_info()
