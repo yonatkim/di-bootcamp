@@ -76,4 +76,55 @@ print(f"The winner is {terrier.fight(spaniel)} in the fight between {terrier.nam
 print(f"The winner is {terrier.fight(collie)} in the fight between {terrier.name} and {collie.name}")
 print(f"The winner is {collie.fight(spaniel)} in the fight between {collie.name} and {spaniel.name}")
 
+# exercise 4
+print("exercise 4")
+class Family:
+    def __init__(self, surname, **kwargs):
+        self.members = [kwargs]
+        self.surname = surname
+        self.members[0]['is_18'] = True if kwargs.get('age') >= 18 else False
+        self.members[0]['is_child'] = True if kwargs.get('age') < 18 else False
+    
+    def add_member(self, **kwargs):
+        self.members.append(kwargs)
+        self.members[len(self.members)-1]['is_18'] = True if kwargs.get('age') >= 18 else False
+        self.members[len(self.members)-1]['is_child'] = True if kwargs.get('age') < 18 else False
+
+    def born(self, **kwargs):
+        self.members.append(kwargs)
+        self.members[len(self.members)-1]['new_born'] = True
+        self.members[len(self.members)-1]['is_child'] = True
+        self.members[len(self.members)-1]['is_18'] = False
+
+    def family_presentation(self):
+        print(f"The {self.surname} family members are:\n")
+        [print(m) for m in self.members]
+    
+kim = [
+        {'name':'Michael','age':35,'gender':'Male','is_child':False},
+        {'name':'Sarah','age':32,'gender':'Female','is_child':False}]
+
+# test cases
+kim_family = Family("Kim", **kim[0])
+kim_family.add_member(**kim[1])
+kim_family.born(**{'name': 'Lo', 'gender': 'Male'})
+kim_family.family_presentation()
+
+# exercise 5
+print()
+print("exercise 5")
+class Theincredibles(Family):
+    def __init__(self, surname, **kwargs):
+        super().__init__(surname, **kwargs)
+    
+    def use_power(self):
+        
+    
+
+incredibles = [
+        {'name':'Michael','age':35,'gender':'Male','is_child':False,'power': 'fly','incredible_name':'MikeFly'},
+        {'name':'Sarah','age':32,'gender':'Female','is_child':False,'power': 'read minds','incredible_name':'SuperWoman'}]
+
+
+
 

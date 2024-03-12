@@ -20,8 +20,11 @@ class PetDog(Dog):
 
 pug = PetDog('Pug', 6, 8)
 pug.train()
+pug.do_a_trick()
 bernard = PetDog('St. Bernard', 7, 54)
 bernard.train()
+bernard.do_a_trick()
 pomeranian = PetDog('Pomeranian', 9, 2)
 pomeranian.train()
+pomeranian.do_a_trick()
 pug.play(pug.name, bernard.name, pomeranian.name)
