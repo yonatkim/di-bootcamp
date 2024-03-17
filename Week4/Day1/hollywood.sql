@@ -16,3 +16,5 @@ VALUES
 
 SELECT * FROM public.actors
 ORDER BY actor_id ASC; 
+
+SELECT COUNT(*) FROM public.actors;
