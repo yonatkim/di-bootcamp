@@ -77,6 +77,7 @@ print(f"The winner is {terrier.fight(collie)} in the fight between {terrier.name
 print(f"The winner is {collie.fight(spaniel)} in the fight between {collie.name} and {spaniel.name}")
 
 # exercise 4
+print()
 print("exercise 4")
 class Family:
     def __init__(self, surname, **kwargs):
@@ -99,7 +100,8 @@ class Family:
     def family_presentation(self):
         print(f"The {self.surname} family members are:\n")
         [print(m) for m in self.members]
-    
+
+# input data   
 kim = [
         {'name':'Michael','age':35,'gender':'Male','is_child':False},
         {'name':'Sarah','age':32,'gender':'Female','is_child':False}]
@@ -113,18 +115,27 @@ kim_family.family_presentation()
 # exercise 5
 print()
 print("exercise 5")
-class Theincredibles(Family):
+class TheIncredibles(Family):
     def __init__(self, surname, **kwargs):
         super().__init__(surname, **kwargs)
     
     def use_power(self):
-        
-    
+        for member in self.members:
+            if member['age'] < 18:
+                raise ValueError(f"ValueError: {member['name']} is younger than 18. Age: {member['age']}")
+            else:
+                print(f"{member['incredible_name']} has the super power: {member['power']}")    
 
+# input data
 incredibles = [
         {'name':'Michael','age':35,'gender':'Male','is_child':False,'power': 'fly','incredible_name':'MikeFly'},
         {'name':'Sarah','age':32,'gender':'Female','is_child':False,'power': 'read minds','incredible_name':'SuperWoman'}]
 
+# test cases
+incred = TheIncredibles('Incredible', **incredibles[0])
+incred.add_member(**incredibles[1])
+incred.family_presentation()
+incred.use_power()
 
 
 
