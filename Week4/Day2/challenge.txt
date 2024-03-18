@@ -1,0 +1,26 @@
+Q1. What will be the OUTPUT of the following statement?
+SELECT COUNT(*) 
+FROM FirstTab AS ft 
+WHERE ft.id NOT IN 
+   ( SELECT id FROM SecondTab WHERE id IS NULL );
+ANSWER: count is 0 because NULL is not a valid id
+
+Q2. What will be the OUTPUT of the following statement?
+SELECT COUNT(*) 
+FROM FirstTab AS ft 
+WHERE ft.id NOT IN 
+   ( SELECT id FROM SecondTab WHERE id = 5 );
+ANSWER: count is 2 id = 6, 7
+
+Q3. What will be the OUTPUT of the following statement?
+SELECT COUNT(*) 
+FROM FirstTab AS ft 
+WHERE ft.id NOT IN ( SELECT id FROM SecondTab );
+ANSWER: count is 0 because NULL is not a valid id, so the whole sub select statement is NULL
+
+Q4. What will be the OUTPUT of the following statement?
+SELECT COUNT(*) 
+FROM FirstTab AS ft 
+WHERE ft.id NOT IN 
+	( SELECT id FROM SecondTab WHERE id IS NOT NULL );
+ANSWER: count is 2 id = 6, 7
