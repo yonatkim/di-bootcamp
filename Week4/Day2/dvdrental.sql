@@ -44,11 +44,23 @@ FROM film
 ORDER BY rental_rate
 OFFSET 10 ROWS 
 FETCH FIRST 10 ROW ONLY; 
--- 12
+-- 12a
 SELECT CONCAT(customer.first_name, ' ', customer.last_name) as fullname,
 payment.amount, payment.payment_date
 FROM customer, payment
 WHERE  customer.customer_id = payment.customer_id
+ORDER BY customer.customer_id;
+-- 12b
+SELECT CONCAT(customer.first_name, ' ', customer.last_name) as fullname,
+payment.amount, payment.payment_date
+FROM customer INNER JOIN payment
+ON customer.customer_id = payment.customer_id
+ORDER BY customer.customer_id;
+-- 12c
+SELECT customer.first_name ||' '|| customer.last_name as fullname,
+payment.amount, payment.payment_date
+FROM customer INNER JOIN payment
+ON customer.customer_id = payment.customer_id
 ORDER BY customer.customer_id;
 -- 13
 SELECT *
@@ -60,7 +72,7 @@ WHERE film_id NOT IN
 SELECT city.city, country.country
 FROM city, country
 WHERE city.country_id = country.country_id;
--- 15
+-- 15a
 SELECT CONCAT(customer.first_name, ' ', customer.last_name) as customer,
 payment.amount, payment.payment_date, 
 CONCAT(staff.first_name, ' ', staff.last_name) as seller
@@ -68,3 +80,12 @@ FROM customer, payment, staff
 WHERE customer.customer_id = payment.customer_id
 AND payment.staff_id = staff.staff_id
 ORDER BY staff.staff_id;
+-- 15b
+SELECT CONCAT(customer.first_name, ' ', customer.last_name) as customer,
+payment.amount, payment.payment_date, 
+CONCAT(staff.first_name, ' ', staff.last_name) as seller
+FROM payment 
+INNER JOIN customer 
+ON customer.customer_id = payment.customer_id
+INNER JOIN staff ON payment.staff_id = staff.staff_id
+ORDER BY payment.staff_id;
