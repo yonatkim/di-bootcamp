@@ -1,8 +1,3 @@
-{
-  let x = 5;
-  console.log('in scope=>', x);
-}
-// console.log('out scope=>', x);
 // stars challenge
 // --1
 let stars = '*';
@@ -22,6 +17,3 @@ for (let i = 0; i < 6; i++) {
     yang.slice(0, yang.length - 2);
     ying += ' *';
 };
-
-
-
