@@ -1,8 +1,3 @@
-{
-  let x = 5;
-  console.log('in scope=>', x);
-}
-// console.log('out scope=>', x);
 // --1
 let sentence1 = "My life is not bad, I enjoy it. I would not want any other life.";
 let sentence2 = "The movie is not so bad, I liked it.";
@@ -14,7 +9,7 @@ let wordBad = 'bad';
 // --4
 let wordGood = 'good';
 
-function replaceNotBad (sentence) {
+function replaceNotBad(sentence) {
     let result = '';
     console.log(`Your sentence is: ${sentence}`)
     if ((sentence.indexOf(wordNot) + wordNot.length + 1) == sentence.indexOf(wordBad)) {
@@ -28,6 +23,3 @@ function replaceNotBad (sentence) {
 replaceNotBad(sentence1);
 replaceNotBad(sentence2);
 replaceNotBad(sentence3);
-
-
-
