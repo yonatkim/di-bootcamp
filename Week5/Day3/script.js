@@ -90,4 +90,39 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     // --10 change the font size of the body
     document.body.style.fontSize = '18px';
+
+    // exercise 6 change the value of the id attribute to "socialNetworkNavigation"
+    const navBarDiv = document.getElementById('navBar');
+    if (navBarDiv) {
+        navBarDiv.setAttribute('id', 'socialNetworkNavigation');
+    } else {
+        console.log('no <div> with id "navBar" found.');
+    };
+    // --3
+    const newLi = document.createElement('li');
+    const textNode = document.createTextNode('Logout');
+    newLi.appendChild(textNode);
+    const navBarUl = document.getElementById('navBar');
+    if (navBarUl) {
+        navBarUl.appendChild(newLi);
+    } else {
+        console.log('no <ul> with id "navBar" found.');
+    };
+    // --4
+    if (navBarUl) {
+        const firstLi = navBarUl.firstElementChild;
+        if (firstLi) {
+            console.log("text of first link:", firstLi.textContent);
+        } else {
+            console.log('no <li>  found in the <ul>.');
+        }
+        const lastLi = navBarUl.lastElementChild;
+        if (lastLi) {
+            console.log("text of last link:", lastLi.textContent);
+        } else {
+            console.log('no <li> found in the <ul>.');
+        }
+    } else {
+        console.log('no <ul> with id "navBar" found.');
+    };
 });    
