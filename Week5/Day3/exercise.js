@@ -87,7 +87,6 @@ let hotelCost = (integerValue) => {
 
 // --2
 let planeRideCost = (trimValue) => {
-
     //console.log(`Your destination ${trimValue.charAt(0).toUpperCase() + trimValue.slice(1)} will cost `)
     switch (trimValue.toLowerCase()) {
         case 'london':
@@ -110,6 +109,7 @@ let rentalCarCost = (integerValue) => {
 // test case
 //console.log(`Please pay $${rentalCarCost(5)}`);
 
+// --6
 let getInput = (userPrompt) => {
     /* returns the user input in a list 
     number of nights, destination, number of days car rental*/
@@ -146,12 +146,16 @@ let getInput = (userPrompt) => {
     data.push(integerValue);
     return data;
 }
-
+// --5
 let totalVacationCost = () => {
     prompts = ['Please enter the number of nights you wish to book at the hotel: ',
         'Please enter your destination: ',
         'Please enter the number of days you wish to rent the car: '];
     let userData = getInput(prompts);
+    // --4
     console.log(`Hotel cost: $${hotelCost(userData[0])} plane ticket cost: $${planeRideCost(userData[1])} car cost: $${rentalCarCost(userData[2])}`)
 }
+// test case
 totalVacationCost(); 
+
+// exercise 5 is in index.html script.js in this same folder
