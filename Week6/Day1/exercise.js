@@ -3,25 +3,23 @@
   console.log('in scope=>', x);
 }
 // console.log('out scope=>', x);
-// stars challenge
-// --1
-let stars = '*';
-for (let i = 0; i < 6; i++) {
-    console.log(stars);
-    stars += ' *';
-};
-// --2 nested
-for (var i = 1; i < 7; i++) {
-    console.log("* ".repeat(i));
-};
-// --3
-let ying = '*';
-let yang = '          ';
-for (let i = 0; i < 6; i++) {
-    console.log(ying + yang);
-    yang.slice(0, yang.length - 2);
-    ying += ' *';
-};
 
+let b=3, d = b, u = b;
+const tree = ++d * d*b * b++ +
+// 4 * 4 * 3 * 3 +
++ --d+ + +b-- +
+// 3 + 4 +
++ +d*b+ +
+// 3 * 3 +
+u
+// 3
+console.log(tree);
 
+let users = ['John', 'Mary', 'Dan', 'Anne'];
+users.forEach((item,indx,arr) => {
+    console.log('item->',item,indx);
+    arr[indx] = item+'@gmail.com'
+});
+//console.log(users);
 
+  
