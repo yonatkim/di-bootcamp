@@ -158,4 +158,4 @@ let totalVacationCost = () => {
 // test case
 totalVacationCost(); 
 
-// exercise 5 is in index.html script.js in this same folder
+// exercise 5, 6, 7 are in index.html styles.css script.js in this same folder
