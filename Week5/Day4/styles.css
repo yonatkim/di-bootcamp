@@ -1,0 +1,22 @@
+.usersAnswer {
+    list-style-type: none;
+}
+
+.usersAnswer li:before {
+    content: "➔";
+    margin-right: 5px;
+}
+
+ body {
+     padding-top: 5px;
+ }
+
+ label,
+ input {
+     display: block;
+ }
+
+ div {
+    background-color: rgba(18, 146, 193, 0.992);
+    color:antiquewhite
+ }
