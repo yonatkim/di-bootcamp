@@ -125,4 +125,71 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.log('no <ul> with id "navBar" found.');
     };
+
+    // Array of books
+    const allBooks = [
+        {
+            title: '1984',
+            author: 'George Orwell',
+            image: 'https://images-na.ssl-images-amazon.com/images/I/91SZSW8qSsL.jpg',
+            alreadyRead: true,
+        },
+        {
+            title: 'Pride and Prejudice',
+            author: 'Jane Austen',
+            image: 'https://upload.wikimedia.org/wikipedia/en/a/aa/Pride_and_prejudice.jpg',
+            alreadyRead: true,
+        },
+        {
+            title: 'To Kill a Mockingbird',
+            author: 'Harper Lee',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/To_Kill_A_Mockingbird.jpg',
+            alreadyRead: false,
+        },
+        {
+            title: 'The Great Gatsby',
+            author: 'F. Scott Fitzgerald',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Portada_de_la_novel%C2%B7la_%22The_Great_Gatsby%22.gif',
+            alreadyRead: true,
+        },
+        {
+            title: 'Harry Potter and the Prisoner of Azkaban',
+            author: 'J.K. Rowling',
+            image: 'https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg" alt="Harry Potter and the Prisoner of Azkaban.jpg',
+            alreadyRead: false
+        }
+    ];
+    // exercise 7 : function to render books
+    function renderBooks() {
+        const listBooksSection = document.querySelector('.listBooks');
+        if (listBooksSection) {
+            allBooks.forEach(function (book, index) {
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('book');
+
+                // set the content of the div
+                bookDiv.innerHTML = `
+                <p>Title: ${book.title}</p>
+                <p>Author: ${book.author}</p>
+                <img src="${book.image}" alt="Book cover" style="width: 100px;">`;
+
+                // if the book is already read, set the color of the text to royalblue
+                if (book.alreadyRead) {
+                    bookDiv.style.color = 'royalblue';
+                }
+                listBooksSection.appendChild(bookDiv);
+
+                if (index < allBooks.length - 1) {
+                    const divider = document.createElement('div');
+                    divider.classList.add('book-divider');
+                    listBooksSection.appendChild(divider);
+                }
+            });
+        } else {
+            console.log('No <section> with class="listBooks" found');   
+        }
+    };
+
+    // Call the renderBooks function to display the books
+    renderBooks();
 });    
