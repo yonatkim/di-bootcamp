@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+
+<body>
+    <h1>GET Method and POST to current page as url parameters </h1>
+    <!-- the . for action to same page-->
+    <form action="." method="GET">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+        <!-- sent data appears in the url: file:///C:/Users/raeny/di-bootcamp/Week6/Day4/?name=Yonat+&message=Hello+Kim%21%21 -->
+        <input type="submit" value="POST">
+    </form>
+    <!-- exercise 3 -->
+    <script src="exercise.js"></script
+</body>
+</html>
