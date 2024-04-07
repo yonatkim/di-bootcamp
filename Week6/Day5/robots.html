@@ -45,11 +45,28 @@
         #searchBox {
             margin-top: 20px;
         }
+        @font-face {
+            font-family: 'Bebas Neue';
+            src: url('path/to/BebasNeue-Regular.ttf') format('truetype')
+        }
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+        }
+        .title-search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .title-search-container h2 {
+            margin-right: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <div id="searchBox">
+    <div id="searchBox" class="title-search-container">
+        <h2>ROBOFRIENDS</h2>
         <input type="text" id="searchInput" placeholder="Search by name...">
     </div>
     <div id="cardContainer"></div>
