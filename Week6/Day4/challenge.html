@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data to JSON</title>
+    <style>
+        #formContainer {
+            display: flex;
+            align-items: center;
+        }
+        #myForm input[type="text"] {
+            margin-right: 10px;
+        }
+        #myForm input[type="submit"] {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GET and POST to JSON </h1>
+    <div id="formContainer">
+        <form id="myForm">
+            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="last_name" name="last_name" placeholder="Surname">
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // prevent form submission
+
+            const name = document.getElementById('name').value;
+            const lastName = document.getElementById('last_name').value;
+
+            const jsonData = { "name": name, "last_name": lastName };
+
+            const jsonString = JSON.stringify(jsonData);
+
+            document.getElementById('output').innerText = jsonString;
+        });
+    </script>
+</body>
+
+</html>
