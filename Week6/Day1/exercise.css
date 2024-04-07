@@ -1,0 +1,33 @@
+em {
+    font-style: italic;
+    color: rgb(105, 18, 219);
+}
+body {
+    background-color: #f94c82;
+}
+p {
+    margin-left: 20px;
+    color: rgb(247, 233, 233);
+    transition: background-color 0.5s ease;
+}
+p:hover {
+    background-color: rgb(39, 189, 212);
+}
+/* Add styling for the user info */
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info span {
+    font-weight: bold;
+}
