@@ -84,17 +84,18 @@ const morse = `{
   "(": "-.--.",
   ")": "-.--.-"
 }`;
-
-function toJs() {
+// jsonString = morse
+function toJs(jsonString) {
     return new Promise((resolve, reject) => {
         try {
-            const morseJS = JSON.parse(morse);
+            // convert to JSON object
+            const morseJS = JSON.parse(jsonString);
             if (Object.keys(morseJS).length === 0) {
                 throw new Error('Morse JavaScript object is empty');
             }
             resolve(morseJS);
         } catch (error) {
-            reject(error.message);
+            reject(`This is not a valid JSON: ${error.message}`);
         }
     });
 }
@@ -126,7 +127,7 @@ function joinWords(morseTranslation) {
 }
 
 // chain the 3 functions
-toJs()
+toJs(morse)
     .then(morseJS => toMorse(morseJS))
     .then(morseTranslation => joinWords(morseTranslation))
     .catch(error => console.error(error));
