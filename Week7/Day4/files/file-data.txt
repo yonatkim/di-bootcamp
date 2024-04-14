@@ -1,4 +1,3 @@
-const currencyData = `
 AED	UAE Dirham	United Arab Emirates
 AFN	Afghan Afghani	Afghanistan
 ALL	Albanian Lek	Albania
@@ -159,4 +158,4 @@ XPF	CFP Franc	Collectivités d'Outre-Mer
 YER	Yemeni Rial	Yemen
 ZAR	South African Rand	South Africa
 ZMW	Zambian Kwacha	Zambia
-ZWL	Zimbabwean Dollar	Zimbabwe`
+ZWL	Zimbabwean Dollar	Zimbabwe
