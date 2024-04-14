@@ -1,0 +1,49 @@
+.starwars {
+    text-align: center;
+}
+
+#loading {
+    color: #007bff;
+    /* Blue color */
+}
+
+#error {
+    color: #dc3545;
+    /* Red color */
+}
+
+.character-data {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#character-info {
+    background-color: #e6c138;
+    /* Pink background */
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border: 20px solid #e6c138;
+    border-radius: 20px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+#fetch-character {
+    background-color: black;
+    color:#e6c138;
+}
