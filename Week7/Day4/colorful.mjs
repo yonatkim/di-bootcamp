@@ -12,13 +12,13 @@
     "test": "node app.js"
   }*/
 
-// import chalk from 'chalk';
+import chalk from 'chalk';
 const chalk = require('chalk');
 
 function displayColorfulMessage() {
-    console.log(chalk.blue.bold('This is a colourful message!'));
+    console.log(chalk.bold.blue('This is a colourful message!'));
 }
 
-displayColorfulMessage();
+//displayColorfulMessage();
 // module.exports = displayColorfulMessage;
-// export default displayColorfulMessage;
+export default displayColorfulMessage;
