@@ -1,11 +1,11 @@
 // app.js
 
 const greet = require('./greeting');
-
-// test case
-console.log(greet('Yonat'));
-
 const displayColorfulMessage = require('./colourful');
+const readFile = require('./read-file');
 
-// test case
+// test cases
+console.log(greet('Yonat'));
+console.log(greet('Kim'));
+readFile();
 displayColorfulMessage();
