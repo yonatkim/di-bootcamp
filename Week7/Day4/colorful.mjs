@@ -1,4 +1,4 @@
-/* colourful.js 
+/* colourful.mjs 
  run: npm init
  npm install chalk
  git repository: https://github.com/yonatkim/di-bootcamp/tree/main/Week7/Day4  
@@ -7,13 +7,12 @@
   "name": "day4",
   "version": "1.0.0",
   "description": "using npm module",
-  "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node app.mjs"
   }*/
 
 import chalk from 'chalk';
-const chalk = require('chalk');
+// const chalk = require('chalk');
 
 function displayColorfulMessage() {
     console.log(chalk.bold.blue('This is a colourful message!'));

@@ -3,11 +3,10 @@
 // non-dynamic imports
 //const greet = require('./greeting');
 //const readFile = require('./read-file');
-// import greet from './greeting.mjs';
-import { greet } from './greeting.mjs';
-import readFile from './read-file.mjs';
 
 // dynamic import
+import greet from './greeting.mjs';
+import { readFile } from './read-file.mjs';
 import('./colorful.mjs').then(colorfulModule => {
     const displayColorfulMessage = colorfulModule.default;
     displayColorfulMessage();
