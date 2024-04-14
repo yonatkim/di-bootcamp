@@ -1,0 +1,22 @@
+{
+  "name": "day4",
+  "version": "1.0.0",
+  "description": "using npm module",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yonatkim/di-bootcamp.git#main"
+  },
+  "author": "yonat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yonatkim/di-bootcamp/issues"
+  },
+  "homepage": "https://github.com/yonatkim/di-bootcamp/tree/main#readme",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}
