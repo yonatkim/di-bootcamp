@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="challenge.css">
+</head>
+
+<body>
+    <div class="converter-container">
+        <h1>Currency Converter</h1>
+        <div class="white-box">
+            <div class="input-section">
+                <label for="fromCurrency">From:</label>
+                <select id="fromCurrency"></select>
+                <label for="toCurrency">To:</label>
+                <select id="toCurrency"></select>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+                <button id="convertBtn">Convert</button>
+            </div>
+            <div class="result-section">
+                <p id="result"></p>
+                <button id="switchBtn">Switch</button>
+            </div>
+        </div>
+    </div>
+    <script src="challenge.js"></script>
+</body>
+
+</html>

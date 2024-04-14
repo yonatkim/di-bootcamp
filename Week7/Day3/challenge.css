@@ -1,0 +1,67 @@
+body {
+    background-image: url('https://w0.peakpx.com/wallpaper/948/288/HD-wallpaper-colorful-currencies-money.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: goldenrod;
+}
+.converter-container {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    /*height: 100vh;*/
+}
+
+.white-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input,
+button {
+    display: block;
+    margin-bottom: 10px;
+}
+h1 {
+    text-shadow: -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+#convertBtn {
+    background-color: white;
+    color: goldenrod;
+    border: none;
+}
+
+#switchBtn {
+    background-color: white;
+    color: goldenrod;
+    border: none;
+}
+.amount {
+    color: goldenrod;
+}
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-section label,
+.input-section input,
+.input-section select,
+.input-section button {
+    margin-left: 2px;
+    margin-right: 2px; 
+}
+
+
+.input-section label {
+    flex: 1;
+    max-width: 150px;
+}
+
+.input-section input[type="number"]::placeholder {
+    color: goldenrod;
+}
