@@ -1,4 +1,5 @@
-// shop.js
+/* shop.js
+exercise 1 */
 
 const products = require('./product');
 

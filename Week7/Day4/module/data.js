@@ -1,4 +1,6 @@
-// data.js
+/* data.js
+run: npm init */
+
 
 const persons = [
     { name: 'Yonat', age: 42, location: 'Jerusalem' },
