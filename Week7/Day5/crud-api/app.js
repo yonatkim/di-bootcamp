@@ -15,7 +15,7 @@ app.get('/api/posts', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
 
 // Invoke-WebRequest -Uri "http://localhost:5000/api/books" -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"title":"Under Milk Wood","author":"Dylan Thomas","publishedYear":"1954"}'

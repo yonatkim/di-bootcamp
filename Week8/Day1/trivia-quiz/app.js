@@ -11,7 +11,7 @@ app.use('/quiz', quizRoutes);
 
 // start the server
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
 
 // Invoke-WebRequest -Uri "http://localhost:3000/quiz" -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"answer":"Paris"}'
