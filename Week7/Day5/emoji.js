@@ -17,79 +17,93 @@ const emojis = [
     { emoji: '🌸', name: 'flower' },
     { emoji: '🫰', name: 'hand' },
     { emoji: '🎗️', name: 'ribbon' },
-   
 ];
 
 let score = 0;
+let timer;
+let currentEmoji; // Store the current emoji
 
-app.get('/emoji-game', (req, res) => {
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-    const options = [randomEmoji.name];
-    
-    while (options.length < 4) {
+function getRandomEmoji() {
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+function generateOptions(correctName) {
+    const options = [];
+    while (options.length < 3) {
         const randomEmojiIndex = Math.floor(Math.random() * emojis.length);
         const randomOption = emojis[randomEmojiIndex].name;
-        if (!options.includes(randomOption)) {
+        if (!options.includes(randomOption) && randomOption !== correctName) {
             options.push(randomOption);
         }
     }
+    options.push(correctName);
+    
+    for (let i = options.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [options[i], options[j]] = [options[j], options[i]];
+    }
+    
+    return options;
+}
+
+
+function generateHint(emojiName) {
+    switch (emojiName.toLowerCase()) {
+        case 'smile':
+            return "It's an expression of happiness";
+        case 'dog':
+            return "It's a loyal animal";
+        case 'taco':
+            return "It's a delicious Mexican dish";
+        case 'heart':
+            return "It's a vital organ associated with love";
+        case 'flower':
+            return "It's fragrant";
+        case 'hand':
+            return "It's a part of the body";
+        case 'ribbon':
+            return "It's tied around a gift";
+        default:
+            return "No hint available";
+    }
+}
+
+app.get('/', (req, res) => {
+    const timeLimit = 30000;
+    timer = setTimeout(() => {
+        res.send('<p>Time\'s up! You ran out of time.</p>');
+    }, timeLimit);
+
+    currentEmoji = getRandomEmoji(); // Store the current emoji
+    const options = generateOptions(currentEmoji.name);
+    const hint = generateHint(currentEmoji.name);
 
     res.send(`
         <form action="/check-guess" method="POST">
             <p>Guess the name of the emoji:</p>
-            <p>${randomEmoji.emoji}</p>
+            <p>${currentEmoji.emoji}</p>
+            <p>Hint: ${hint}</p>
             <select name="guess">
                 ${options.map(option => `<option value="${option}">${option}</option>`).join('')}
             </select>
             <button type="submit">Submit</button>
+            <p>Score: ${score}</p>
         </form>
     `);
 });
 
 app.post('/check-guess', (req, res) => {
+    clearTimeout(timer); // clear timer when guess is submitted
     const { guess } = req.body;
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-    
-    if (guess === randomEmoji.name) {
+
+    if (guess.toLowerCase() === currentEmoji.name) { // Use the stored currentEmoji for comparison
         score++;
         res.send(`<p>Correct! Your score is now ${score}.</p>`);
     } else {
-        res.send(`<p>Incorrect! The correct answer is ${randomEmoji.name}.</p>`);
+        res.send(`<p>Incorrect! The correct answer is ${currentEmoji.name}.</p>`);
     }
 });
 
 app.listen(port, () => {
     console.log(`Emoji Guessing Game app listening at http://localhost:${port}`);
 });
-
-let timer;
-
-app.get('/emoji-game', (req, res) => {
-    // Generate random emoji and options as before
-
-
-    const timeLimit = 30000;
-    timer = setTimeout(() => {
-        res.send('<p>Time\'s up! You ran out of time.</p>');
-    }, timeLimit);
-
-    // Send form with emoji and options
-});
-
-app.post('/check-guess', (req, res) => {
-    clearTimeout(timer); // clear timer when guess is submitted
-
-    if (guess !== randomEmoji.name) {
-        const hint = generateHint(randomEmoji.name);
-        res.send(`<p>Incorrect! Here's a hint: ${hint}</p>`);
-    } else {
-        score++;
-        res.send(`<p>Correct! Your score is now ${score}.</p>`);
-    }
-});
-
-function generateHint(emojiName) {
-    // Generate hint based on emoji name
-    // Example: If emojiName is "Smile", hint might be "It's an expression of happiness"
-    // You can customize this logic based on your dataset or API
-}
